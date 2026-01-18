@@ -1,0 +1,66 @@
+--==============================
+-- DOORS CAPTION GỐC
+--==============================
+local caption = require(
+    game.Players.LocalPlayer
+    .PlayerGui.MainUI
+    .Initiator.Main_Game
+).caption
+
+--==============================
+-- DEVIL MODE (GIỮ ENTITY)
+--==============================
+loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/datdoors/Devilmodefixed.main/refs/heads/main/Devilmodefixed"
+))()
+
+--==============================
+-- CAPTION FLOW
+--==============================
+caption("Devil mode script successfully loaded v1.1", true)
+task.wait(5)
+
+caption("credit - smile - tuffmu", true)
+task.wait(4)
+
+caption("script in Voorpr0 discord", true)
+task.wait(4)
+
+caption("wait load mode...", true)
+task.wait(3)
+
+--==============================
+-- LOAD FLOOR 2
+--==============================
+pcall(function()
+	loadstring(game:HttpGet(
+        "https://raw.githubusercontent.com/Junxd-03/Floor-2/refs/heads/main/New"
+    ))()
+end)
+
+--==============================
+-- FIX ROOM SYSTEM
+-- DEVIL ENTITY SPAWN TỪ DOOR 10+
+--==============================
+task.spawn(function()
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local GameData = ReplicatedStorage:FindFirstChild("GameData")
+        and require(ReplicatedStorage.GameData)
+
+    if not GameData then return end
+
+    while task.wait(0.5) do
+        if workspace:FindFirstChild("CurrentRooms") then
+            local roomCount = #workspace.CurrentRooms:GetChildren()
+            if GameData.LatestRoom.Value ~= roomCount then
+                GameData.LatestRoom.Value = roomCount
+            end
+        end
+    end
+end)
+
+--==============================
+-- FINAL
+--==============================
+task.wait(2)
+caption("Good luck!", true)
